@@ -31,7 +31,8 @@ include 'header.php';
                 <img src="assets/img/portfolio/logo.jpeg" class="form_img" alt="">
             </div>
             <div class="col-lg-6 mt-5 mt-lg-4">
-                <form action="dashboard/examples/user.php" method="post" role="form" id="frm">
+            <!-- dashboard/examples/user.php -->
+                <form action="logindata.php" method="post" role="form" id="frm">
                     <div class="row">
                         <h1><center>Login</center></h1>
                             <div class="form-group mt-3">
@@ -58,14 +59,14 @@ include 'header.php';
 include 'footer.php';
 ?>
 <script>
-    $('#frm').validate({
-        rules:{
-            email:{
-                required:true
-            },
-            password:{
-                required:true
-            }
-        }
-    });
+    // $('#frm').validate({
+    //     rules:{
+    //         email:{
+    //             required:true
+    //         },
+    //         password:{
+    //             required:true
+    //         }
+    //     }
+    // });
 </script>
