@@ -1,6 +1,8 @@
 <?php 
 include 'header.php';
 include 'navbar.php';
+include 'connection.php';
+$sql="SELECT * FROM `users`  WHERE `email` LIKE '$email' AND `password` LIKE '$password'";
 ?>
       <div class="panel-header panel-header-sm">
       </div>
@@ -23,7 +25,7 @@ include 'navbar.php';
                     <div class="col-md-3 px-1">
                       <div class="form-group">
                         <label>Username</label>
-                        <input type="text" class="form-control" placeholder="Username" value="michael23">
+                        <input type="text" class="form-control" placeholder="Username" value="">
                       </div>
                     </div>
                     <div class="col-md-4 pl-1">
@@ -87,40 +89,8 @@ include 'navbar.php';
               </div>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="card card-user">
-              <div class="image">
-                <img src="../assets/img/bg5.jpg" alt="...">
-              </div>
-              <div class="card-body">
-                <div class="author">
-                  <a href="#">
-                    <img class="avatar border-gray" src="../assets/img/mike.jpg" alt="...">
-                    <h5 class="title">Mike Andrew</h5>
-                  </a>
-                  <p class="description">
-                    michael24
-                  </p>
-                </div>
-                <p class="description text-center">
-                  "Lamborghini Mercy <br>
-                  Your chick she so thirsty <br>
-                  I'm in that two seat Lambo"
-                </p>
-              </div>
-              <hr>
-              <div class="button-container">
-                <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
-                  <i class="fab fa-facebook-f"></i>
-                </button>
-                <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
-                  <i class="fab fa-twitter"></i>
-                </button>
-                <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
-                  <i class="fab fa-google-plus-g"></i>
-                </button>
-              </div>
-            </div>
+          <div class="col-md-4 mt-2">
+          <?php include 'profile.php';?>
           </div>
         </div>
       </div>
