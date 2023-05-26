@@ -2,12 +2,12 @@
 include 'header.php';
 ?>
 
-<?php 
-    $url=simplexml_load_file('https://www.belongly.com/wp-content/uploads/xml/81-postings-generic.xml');
-    echo "<pre>";
-    print_r($url);die;
-    $xml = new SimpleXMLElement($url);
-?>
+<!-- <?php 
+    // $url=simplexml_load_file('https://www.belongly.com/wp-content/uploads/xml/81-postings-generic.xml');
+    // echo "<pre>";
+    // print_r($url);die;
+    // $xml = new SimpleXMLElement($url);
+?> -->
 
 
 <main id="main">
@@ -15,23 +15,23 @@ include 'header.php';
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Register Now</h2>
+          <h2>Login Here</h2>
           <ol>
-            <li><a href="#">Home</a></li>
+            <li><a href="#" class="active">Home</a></li>
             <li>Register</li>
           </ol>
         </div>
       </div>
     </section>
      <!-- ======= Contact Section ======= -->
-     <section id="contact" class="contact">
+     <section id="login" class="contact">
       <div class="container">
         <div class="row">
             <div class="col-lg-6 mt-5 mt-lg-0"> 
-                <img src="assets/img/portfolio/graph.jpg" class="form_img" alt="">
+                <img src="assets/img/portfolio/logo.jpeg" class="form_img" alt="">
             </div>
             <div class="col-lg-6 mt-5 mt-lg-4">
-                <form action="dashboard.php" method="post" role="form" id="frm">
+                <form action="dashboard/examples/user.php" method="post" role="form" id="frm">
                     <div class="row">
                         <h1><center>Login</center></h1>
                             <div class="form-group mt-3">

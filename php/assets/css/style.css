@@ -2120,7 +2120,12 @@ section {
   color: rgb(227, 7, 7);
 }
 .form_img {
-  width: 100%;
+  width: 71%;
   height: 100%;
   border-radius: 96px;
+}
+section#contact{
+  margin: 20%;
+  margin-top: 0%;
+  margin-bottom: 0%;
 }

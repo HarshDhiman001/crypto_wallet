@@ -37,6 +37,12 @@
 ?>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
+        <li class="<?php echo $url == 'user' ? 'active' : '' ?>">
+            <a href="./user.php">
+              <i class="now-ui-icons users_single-02"></i>
+              <p>User Profile</p>
+            </a>
+          </li>
           <li class="<?php echo $url == 'dashboard' ? 'active' : '' ?>">
             <a href="./dashboard.php">
               <i class="now-ui-icons design_app"></i>
@@ -59,12 +65,6 @@
             <a href="./notifications.php">
               <i class="now-ui-icons ui-1_bell-53"></i>
               <p>Notifications</p>
-            </a>
-          </li>
-          <li class="<?php echo $url == 'user' ? 'active' : '' ?>">
-            <a href="./user.php">
-              <i class="now-ui-icons users_single-02"></i>
-              <p>User Profile</p>
             </a>
           </li>
           <li class="<?php echo $url == 'tables' ? 'active' : '' ?>">

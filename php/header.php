@@ -53,10 +53,10 @@
           <li><a href="index.php" class="<?php echo $url == 'index' ? 'active' : '' ?>">Home</a></li>
           <li><a href="register.php" class="<?php echo $url == 'register' ? 'active' : '' ?>">Register</a></li>
           <li><a href="login.php" class="<?php echo $url == 'login' ? 'active' : '' ?>">login</a></li>
-          <li><a href="#">Portfolio</a></li>
-          <li><a href="#">Pricing</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Contact</a></li>
+          <!-- <li><a href="#">Portfolio</a></li> -->
+          <!-- <li><a href="#">Pricing</a></li> -->
+          <!-- <li><a href="#">Blog</a></li> -->
+          <li><a href="https://www.instagram.com/official_harsh0/">Contact</a></li>
           <li class="dropdown"><a href="#"><span>About</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#">About</a></li>
@@ -74,7 +74,7 @@
               </li>
             </ul>
           </li>
-          <li><a href="index.html" class="getstarted">Get Started</a></li>
+          <li><a href="Register.php " class="getstarted">Get Started</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
