@@ -1,6 +1,6 @@
 <?php 
 include 'header.php';
-include 'navbar.php';
+include '../php/navbar.php';
 ?>
 <div class="col-md-12">
             <?php include 'profile.php';?>

@@ -1,10 +1,13 @@
 <?php 
 include 'header.php';
 include 'navbar.php';
-include 'connection.php';
-$sql="SELECT * FROM `users`  WHERE `email` LIKE '$email' AND `password` LIKE '$password'";
+// include 'connection.php';
+// die;
+// $sql="SELECT * FROM `users`  WHERE `email` LIKE '$email' AND `password` LIKE '$password'";
+// $name = $_GET['name'];
+// echo $name;die;
 ?>
-      <div class="panel-header panel-header-sm">
+    <div class="panel-header panel-header-sm">
       </div>
       <div class="content">
         <div class="row">
