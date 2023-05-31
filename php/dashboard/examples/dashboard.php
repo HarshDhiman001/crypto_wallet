@@ -50,7 +50,6 @@ if($result)
 <body class="">
   <div class="wrapper ">
     <div class="sidebar" data-color="orange">
-
       <div class="logo">
         <a href="#" class="simple-text logo-mini">
           CT
@@ -59,9 +58,9 @@ if($result)
           Crypto.com
         </a>
       </div>
-<?php
-    $url = str_replace('.php','',basename($_SERVER['PHP_SELF']));
-?>
+      <?php
+        $url = str_replace('.php','',basename($_SERVER['PHP_SELF']));
+      ?>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
         <li class="<?php echo $url == 'user' ? 'active' : '' ?>">
