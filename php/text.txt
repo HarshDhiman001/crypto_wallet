@@ -1,0 +1,94 @@
+
+<div class="form-group mt-3">
+<input type="file" name="img">
+</div>
+
+
+$filename = $_FILES["img"]["name"];
+$temp_file = $_FILES["img"]["tmp_name"];
+$folder = "images/".$filename;
+move_uploaded_file($temp_file,$folder);
+
+
+
+
+
+
+  <!-- <div class="wrapper ">
+    <div class="sidebar" data-color="orange">
+
+      <div class="logo">
+        <a href="#" class="simple-text logo-mini">
+          CT
+        </a>
+        <a href="#" class="simple-text logo-normal">
+          Creative Tim
+        </a>
+      </div>
+<?php
+    $url = str_replace('.php','',basename($_SERVER['PHP_SELF']));
+?>
+      <div class="sidebar-wrapper" id="sidebar-wrapper">
+        <ul class="nav">
+        <li class="<?php echo $url == 'user' ? 'active' : '' ?>">
+            <a href="./user.php?email=<?php echo $email;?>">
+              <i class="now-ui-icons users_single-02"></i>
+              <p>User Profile</p>
+            </a>
+          </li>
+          <li class="<?php echo $url == 'dashboard' ? 'active' : '' ?>">
+            <a href="./dashboard.php?email=<?php echo $email;?>">
+              <i class="now-ui-icons design_app"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="active">
+            <a href="./wallet.php?email=<?php echo $email;?>">
+              <i class="now-ui-icons education_atom"></i>
+              <p>Wallet</p>
+            </a>
+          </li>
+          <li class="<?php echo $url == 'typography' ? 'active' : '' ?>">
+            <a href="#">
+              <i class="now-ui-icons text_caps-small"></i>
+              <p>Typography</p>
+            </a>
+          </li>
+          <li class="active-pro">
+            <a href="./upgrade.php">
+              <i class="now-ui-icons arrows-1_cloud-download-93"></i>
+              <p>Upgrade to PRO</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel" id="main-panel">
+      <!-- Navbar -->
+      <div class="panel-header panel-header-sm">
+      </div>
+      <div class="content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title"> Simple Table</h4>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead class=" text-primary">
+                      <th>
+                        Name
+                      </th>
+                      <th>
+                        Country
+                      </th>
+                      <th>
+                        City
+                      </th>
+                      <th class="text-right">
+                        Salary
+                      </th>
+                    </thead>
+                    <tbody>

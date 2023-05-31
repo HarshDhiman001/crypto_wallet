@@ -1,6 +1,5 @@
 <?php
 include 'connect.php';
-include 'navbar.php';
 $email = $_GET['email'];
 $sql = "SELECT * FROM `users` WHERE `email` LIKE '$email'";
 $result = mysqli_query($con,$sql);
@@ -43,56 +42,7 @@ if($result)
 </head>
 
 <body class="">
-  <div class="wrapper ">
-    <div class="sidebar" data-color="orange">
-
-      <div class="logo">
-        <a href="#" class="simple-text logo-mini">
-          CT
-        </a>
-        <a href="#" class="simple-text logo-normal">
-          Crypto.com
-        </a>
-      </div>
-<?php
-    $url = str_replace('.php','',basename($_SERVER['PHP_SELF']));
-?>
-      <div class="sidebar-wrapper" id="sidebar-wrapper">
-        <ul class="nav">
-        <li class="<?php echo $url == 'user' ? 'active' : '' ?>">
-            <a href="./user.php?email=<?php echo $email;?>">
-              <i class="now-ui-icons users_single-02"></i>
-              <p>User Profile</p>
-            </a>
-          </li>
-          <li class="<?php echo $url == 'dashboard' ? 'active' : '' ?>">
-            <a href="./dashboard.php?email=<?php echo $email;?>">
-              <i class="now-ui-icons design_app"></i>
-              <p>Dashboard</p>
-            </a>
-          </li>
-          <li class="<?php echo $url == 'icons' ? 'active' : '' ?>">
-            <a href="./wallet.php?email=<?php echo $email;?>">
-              <i class="now-ui-icons education_atom"></i>
-              <p>Wallet</p>
-            </a>
-          </li>
-          <li class="<?php echo $url == 'typography' ? 'active' : '' ?>">
-            <a href="#">
-              <i class="now-ui-icons text_caps-small"></i>
-              <p>Typography</p>
-            </a>
-          </li>
-          <li class="active-pro">
-            <a href="./upgrade.php">
-              <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-              <p>Upgrade to PRO</p>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="main-panel" id="main-panel">
+    <!-- <div class="main-panel" id="main-panel"> -->
       <!-- Navbar -->
     <div class="panel-header panel-header-sm">
       </div>
@@ -104,24 +54,24 @@ if($result)
                 <h5 class="title">Edit Profile</h5>
               </div>
               <div class="card-body">
-                <form>
+                <form action="updatedata.php" method="post">
                   <div class="row">
                     <div class="col-md-5 pr-1">
                       <div class="form-group">
                         <label>Available Balance</label>
-                        <input type="text" class="form-control" disabled="" placeholder="Company" value="<?php echo $wallet;?>"">
+                        <input type="text" class="form-control" name="balance" disabled="" placeholder="Company" value="<?php echo $wallet;?>"">
                       </div>
                     </div>
                     <div class="col-md-3 px-1">
                       <div class="form-group">
                         <label>Username</label>
-                        <input type="text" class="form-control" placeholder="Username" value="<?php echo $name;?>">
+                        <input type="text" class="form-control" name="name" placeholder="Username" value="<?php echo $name;?>">
                       </div>
                     </div>
                     <div class="col-md-4 pl-1">
                       <div class="form-group">
                         <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" placeholder="Email" value="<?php echo $email;?>">
+                        <input type="email" class="form-control" placeholder="Email" name="email" value="<?php echo $email;?>">
                       </div>
                     </div>
                   </div>
@@ -130,7 +80,7 @@ if($result)
                     <div class="col-md-12">
                       <div class="form-group">
                         <label>Address</label>
-                        <input type="text" class="form-control" placeholder="Home Address" value="<?php echo $address;?>">
+                        <input type="text" class="form-control" name="address" placeholder="Home Address" value="<?php echo $address;?>">
                       </div>
                     </div>
                   </div>
@@ -138,19 +88,19 @@ if($result)
                     <div class="col-md-4 pr-1">
                       <div class="form-group">
                         <label>Phone</label>
-                        <input type="text" class="form-control" placeholder="City"  value="<?php echo $phone;?>">
+                        <input type="text" class="form-control" placeholder="City" name="phone" value="<?php echo $phone;?>">
                       </div>
                     </div>
                     <div class="col-md-4 px-1">
                       <div class="form-group">
                         <label>Country</label>
-                        <input type="text" class="form-control" placeholder="Country"  value="<?php echo $country;?>">
+                        <input type="text" class="form-control" placeholder="Country" name="country" value="<?php echo $country;?>">
                       </div>
                     </div>
                     <div class="col-md-4 pl-1">
                       <div class="form-group">
                         <label>Postal Code</label>
-                        <input type="number" class="form-control" placeholder="ZIP Code" value="<?php echo $pincode;?>">
+                        <input type="number" class="form-control" placeholder="ZIP Code" name="pincode" value="<?php echo $pincode;?>">
                       </div>
                     </div>
                   </div>
@@ -162,10 +112,7 @@ if($result)
                       </div>
                     </div>
                   </div>
-                    <a href="./update.php?email=<?php echo $email;?>">
-                      <!-- <i class="now-ui-icons education_atom"></i> -->
-                      <p>Update Info</p>
-                    </a>
+                    <input type="submit" value="Save">
                 </form>
               </div>
             </div>

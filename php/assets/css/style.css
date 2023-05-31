@@ -2129,3 +2129,7 @@ section#contact{
   margin-top: 0%;
   margin-bottom: 0%;
 }
+#selectoption{
+  border-radius: 4px;
+  border-color: #afafaf;
+}

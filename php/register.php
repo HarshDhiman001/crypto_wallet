@@ -19,9 +19,8 @@ include 'header.php';
       <div class="container">
         <div class="row"> 
 <!-- <div class="container"> -->
-
     <div class="col-lg-12 mt-5 mt-lg-0">
-        <form action="registerdata.php" method="post" role="form" id="frm">
+        <form action="registerdata.php" method="post" role="form" id="frm" enctype="multipart/form-data>
             <h1><center>Register</center></h1>
             <div class="row">
                 <div class="form-group mt-3">
@@ -31,17 +30,23 @@ include 'header.php';
                     <input type="email" class="form-control" name="email" id="email" placeholder="Your Email">
                 </div>
                 <div class="form-group mt-3">
-                        <input type="number" class="form-control" name="phone" id="phone" placeholder="Phone Number">
-                    </div>
-                    <div class="form-group mt-3">
-                        <input type="password" class="form-control" name="password" id="password" placeholder="Password">
-                    </div>
-                    <div class="form-group mt-3">
-                        <a href="login.php">Already registered</a>
-                    </div>
-                    <div class="text-center">
-                        <button class="btn btn-danger w-100 p-1 mt-4 btn-block" type="submit">Register</button>
-                    </div>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                </div>
+                <div class="form-group mt-3">
+                    <input type="number" class="form-control" name="phone" id="phone" placeholder="Phone Number">
+                </div>
+                <div class="form-group mt-3">
+                    <input type="text" class="form-control" name="address" id="email" placeholder="Your Address">
+                </div>
+                <div class="form-group mt-3">
+                    <input type="text" class="form-control" name="pincode" id="email" placeholder="Your Pincode">
+                </div>
+                <div class="form-group mt-3">
+                    <a href="login.php">Already registered</a>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-danger w-100 p-1 mt-4 btn-block" type="submit">Register</button>
+                </div>
                 </form>
             </div>
         </div>        

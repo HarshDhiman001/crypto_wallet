@@ -1,7 +1,109 @@
-<?php 
-include 'header.php';
+<?php
+include 'connect.php';
 include 'navbar.php';
+$email = $_GET['email'];
+if(array_key_exists('message', $_GET)){
+  $error = $_GET['message'];
+}
+$sql = "SELECT * FROM `users` WHERE `email` LIKE '$email'";
+$result = mysqli_query($con,$sql);
+if($result)
+{
+  foreach($result as $row)
+  {
+    $id = $row['id'];
+    // header("location: http://localhost/clg_project/php/dashboard/examples/user.php?email=$email");
+  }
+}
 ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Now UI Dashboard by Creative Tim
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <!-- CSS Files -->
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="../assets/demo/demo.css" rel="stylesheet" />
+</head>
+<style>
+  .badge-danger {
+    color: #fff;
+    background-color: #dc3545;
+    height: 20px;
+    position: absolute;
+    z-index: 99;
+    /* width: 11%; */
+}
+</style>
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="orange">
+
+      <div class="logo">
+        <a href="#" class="simple-text logo-mini">
+          CT
+        </a>
+        <a href="#" class="simple-text logo-normal">
+          Crypto.com
+        </a>
+      </div>
+<?php
+    $url = str_replace('.php','',basename($_SERVER['PHP_SELF']));
+?>
+      <div class="sidebar-wrapper" id="sidebar-wrapper">
+        <ul class="nav">
+        <li class="<?php echo $url == 'user' ? 'active' : '' ?>">
+            <a href="./user.php?email=<?php echo $email;?>">
+              <i class="now-ui-icons users_single-02"></i>
+              <p>User Profile</p>
+            </a>
+          </li>
+          <li class="<?php echo $url == 'dashboard' ? 'active' : '' ?>">
+            <a href="./dashboard.php?email=<?php echo $email;?>">
+              <i class="now-ui-icons design_app"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="<?php echo $url == 'icons' ? 'active' : '' ?>">
+            <a href="./wallet.php?email=<?php echo $email;?>">
+              <i class="now-ui-icons education_atom"></i>
+              <p>Wallet</p>
+            </a>
+          </li>
+          <li class="<?php echo $url == 'history' ? 'active' : '' ?>">
+            <a href="history.php">
+              <i class="now-ui-icons text_caps-small"></i>
+              <p>history</p>
+            </a>
+          </li>
+          <li class="active-pro">
+            <a href="./upgrade.php">
+              <i class="now-ui-icons arrows-1_cloud-download-93"></i>
+              <p>Upgrade to PRO</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel" id="main-panel">
+      <?php 
+        if(isset($error)){
+          echo '<a href="#" class="badge badge-pill badge-danger ">' . $error . '</a>';
+        }
+      ?>
+      <!-- Navbar -->
       <div class="panel-header panel-header-lg">
         <canvas id="bigDashboardChart"></canvas>
       </div>
@@ -168,99 +270,31 @@ include 'navbar.php';
           <div class="col-md-6">
             <div class="card">
               <div class="card-header">
-                <h5 class="card-category">All Persons List</h5>
-                <h4 class="card-title"> Employees Stats</h4>
+                <h5 class="card-category">Add Your Expenses</h5>
+                <h4 class="card-title">Add To Wallet</h4>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
-                  <table class="table">
-                    <thead class=" text-primary">
-                      <th>
-                        Name
-                      </th>
-                      <th>
-                        Country
-                      </th>
-                      <th>
-                        City
-                      </th>
-                      <th class="text-right">
-                        Salary
-                      </th>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          Dakota Rice
-                        </td>
-                        <td>
-                          Niger
-                        </td>
-                        <td>
-                          Oud-Turnhout
-                        </td>
-                        <td class="text-right">
-                          $36,738
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Minerva Hooper
-                        </td>
-                        <td>
-                          Curaçao
-                        </td>
-                        <td>
-                          Sinaai-Waas
-                        </td>
-                        <td class="text-right">
-                          $23,789
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Sage Rodriguez
-                        </td>
-                        <td>
-                          Netherlands
-                        </td>
-                        <td>
-                          Baileux
-                        </td>
-                        <td class="text-right">
-                          $56,142
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Doris Greene
-                        </td>
-                        <td>
-                          Malawi
-                        </td>
-                        <td>
-                          Feldkirchen in Kärnten
-                        </td>
-                        <td class="text-right">
-                          $63,542
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Mason Porter
-                        </td>
-                        <td>
-                          Chile
-                        </td>
-                        <td>
-                          Gloucester
-                        </td>
-                        <td class="text-right">
-                          $78,615
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+                <form action="expencesdata.php" method="post">
+            <div class="form-group">
+                <input type="hidden" name="id" value="<?php echo $row['id'];?>">
+                <label for="exampleInputEmail1">Enter amount</label>
+                <input type="number" class="form-control" name="amount" placeholder="Enter amount">
+               </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Items</label>
+                <div class="input-group mb-3">
+                <select class="custom-select" name="items" id="inputGroupSelect01">
+                    <option selected>Choose...</option>
+                    <option value="Fruits">Fruits</option>
+                    <option value="Vegitables">Vegitables</option>
+                    <option value="Cloths">Cloths</option>
+                    <option value="Burgur">Burgur</option>
+                </select>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
                 </div>
               </div>
             </div>

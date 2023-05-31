@@ -26,8 +26,8 @@ if($result)
               <div class="card-body">
                 <div class="author">
                   <a href="#">
-                    <a href="#">
-                      <img class="avatar border-gray" src="../assets/img/harshdhiman.jpg" alt="...">
+                    <a href="img.php">
+                      <img class="avatar border-gray" src="../assets/img/mike.jpg" alt="...">
                     </a>
                     <h5 class="title"><?php echo $name;?></h5>
                   </a>
@@ -36,23 +36,23 @@ if($result)
                   </p>
                 </div>
                 <p class="description text-center">
-                  "Hello There🙋🏻‍♂️<br>
-                  I love to learn new things new technologies and I'm always eager to learn new skills and open for challenges apart from this I Have Good Knowledge About Java , PHP , HTML & CSS as well.
-                  Thank You ☺️"<br>
+                  "Lamborghini Mercy <br>
+                  Your chick she so thirsty <br>
+                  I'm in that two seat Lambo"
                 </p>
               </div>
-              <hr>
-              <div class="button-container">
-                <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
-                  <i class="fab fa-facebook-f"></i>
-                </button>
-                <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
-                  <i class="fab fa-twitter"></i>
-                </button>
-                <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
-                  <i class="fab fa-google-plus-g"></i>
-                </button>
-              </div>
+            <hr>
+            <div class="button-container">
+            <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
+                <i class="fab fa-facebook-f"></i>
+            </button>
+            <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
+                <i class="fab fa-twitter"></i>
+            </button>
+            <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
+                <i class="fab fa-google-plus-g"></i>
+            </button>
             </div>
-          </div>
         </div>
+    </div>
+</div>

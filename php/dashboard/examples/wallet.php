@@ -9,13 +9,6 @@ if($result)
   foreach($result as $row)
   {
     $id = $row['id'];
-    $email = $row['email'];
-    $name = $row['name'];
-    $wallet = $row['balance'];
-    $address = $row['address'];
-    $phone = $row['phone'];
-    $pincode = $row['pincode'];
-    $country = $row['country'];
     // header("location: http://localhost/clg_project/php/dashboard/examples/user.php?email=$email");
   }
 }
@@ -41,9 +34,14 @@ if($result)
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
 </head>
-
+<style>
+.col-md-5.pr-1 
+{
+    left: -15px;
+}
+</style>
 <body class="">
-  <div class="wrapper ">
+<div class="wrapper ">
     <div class="sidebar" data-color="orange">
 
       <div class="logo">
@@ -71,7 +69,7 @@ if($result)
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="<?php echo $url == 'icons' ? 'active' : '' ?>">
+          <li class="active">
             <a href="./wallet.php?email=<?php echo $email;?>">
               <i class="now-ui-icons education_atom"></i>
               <p>Wallet</p>
@@ -94,84 +92,79 @@ if($result)
     </div>
     <div class="main-panel" id="main-panel">
       <!-- Navbar -->
-    <div class="panel-header panel-header-sm">
+      <div class="panel-header panel-header-sm">
       </div>
       <div class="content">
         <div class="row">
-          <div class="col-md-8">
+          <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h5 class="title">Edit Profile</h5>
+                <h4 class="card-title">Add Amount</h4>
               </div>
-              <div class="card-body">
-                <form>
-                  <div class="row">
+                    <?php 
+                    include 'connect.php';
+                    $sql = "SELECT * FROM `users` WHERE `users`.`id` = $id";
+                    $result = mysqli_query($con,$sql);
+                    foreach($result as $row)
+                    {
+                    $balance = $row['balance'];
+                    ?>
+                    <form action="moneydata.php" method="post">
+                    <div class="container mt-4">
+                    <input type="hidden" name="id" value='<?php echo $row['id'];?>'>
+                    <label for=""><h5>Your total balance:-</h5></label>
                     <div class="col-md-5 pr-1">
                       <div class="form-group">
-                        <label>Available Balance</label>
-                        <input type="text" class="form-control" disabled="" placeholder="Company" value="<?php echo $wallet;?>"">
+                        <input type="text" class="form-control" disabled="" placeholder="Company" value="<?php echo $balance; ?>">
                       </div>
                     </div>
-                    <div class="col-md-3 px-1">
-                      <div class="form-group">
-                        <label>Username</label>
-                        <input type="text" class="form-control" placeholder="Username" value="<?php echo $name;?>">
-                      </div>
+                    <div class="form-group">
+                    <label for="exampleInputEmail1">Add Money</label>
+                    <input type="number" name="addmoney" class="form-control" placeholder="Enter Amount">
                     </div>
-                    <div class="col-md-4 pl-1">
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" placeholder="Email" value="<?php echo $email;?>">
-                      </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
-                  </div>
-                  
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <label>Address</label>
-                        <input type="text" class="form-control" placeholder="Home Address" value="<?php echo $address;?>">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-4 pr-1">
-                      <div class="form-group">
-                        <label>Phone</label>
-                        <input type="text" class="form-control" placeholder="City"  value="<?php echo $phone;?>">
-                      </div>
-                    </div>
-                    <div class="col-md-4 px-1">
-                      <div class="form-group">
-                        <label>Country</label>
-                        <input type="text" class="form-control" placeholder="Country"  value="<?php echo $country;?>">
-                      </div>
-                    </div>
-                    <div class="col-md-4 pl-1">
-                      <div class="form-group">
-                        <label>Postal Code</label>
-                        <input type="number" class="form-control" placeholder="ZIP Code" value="<?php echo $pincode;?>">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <label>About Me</label>
-                        <textarea rows="4" cols="80" class="form-control" placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
-                      </div>
-                    </div>
-                  </div>
-                    <a href="./update.php?email=<?php echo $email;?>">
-                      <!-- <i class="now-ui-icons education_atom"></i> -->
-                      <p>Update Info</p>
-                    </a>
-                </form>
+                    </form>
+                    <?php } ?>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-md-4 mt-2">
-          <?php include 'profile.php';?>
+          <div class="col-md-12">
+            <div class="card card-plain">
+              <div class="card-header">
+                <h4 class="card-title"> Table on Plain Background</h4>
+                <p class="category"> Here is a subtitle for this table</p>
+              </div>
+              <?php
+              include 'connection.php';
+              $sql = "SELECT * FROM `data` WHERE `data`.`sno` = $sno";
+              $result = mysqli_query($con,$sql);
+              if($result)
+              foreach($result as $row)
+              {
+              $wallet = $row['wallet'];
+              ?>
+              <form action="moneydata.php" method="post">
+              <div class="container mt-4">
+              <input type="hidden" name="sno" value='<?php echo $row['sno'];?>'>
+              <label for=""><h5>Your total balance:-</h5></label>
+              <input type="text" name="balance" value="<?php echo $wallet; ?>" readonly>
+              <div class="form-group">
+              <label for="exampleInputEmail1">Add Money</label>
+              <input type="number" name="addmoney" class="form-control" placeholder="Enter Amount">
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+              </form>
+              <?php } ?>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

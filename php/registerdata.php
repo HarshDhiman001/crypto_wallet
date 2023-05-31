@@ -2,10 +2,12 @@
 include 'connection.php';
 $name = $_POST['name'];
 $email = $_POST['email'];
-$phone = $_POST['phone'];
 $password = $_POST['password'];
-$sql = "INSERT INTO `users` (name, email, phone, password) 
-VALUES ('$name', '$email', '$phone', '$password')";
+$phone = $_POST['phone'];
+$address = $_POST['address'];
+$pincode = $_POST['pincode'];
+$sql = "INSERT INTO `users` (name, email, password, phone, address, pincode) 
+VALUES ('$name', '$email', '$password', '$phone', '$address', '$pincode')";
 $result = mysqli_query($con,$sql);
 if($result)
 {

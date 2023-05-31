@@ -9,7 +9,7 @@ if(mysqli_num_rows($result)>0)
     session_start();
     $_SESSION["email"] = $email;
     $_SESSION["password"] = $password;
-    header("location: http://localhost/clg_project/php/dashboard/examples/user.php");
+    header("location: http://localhost/clg_project/php/dashboard/examples/header.php?email=$email");
 }
 else
 {
