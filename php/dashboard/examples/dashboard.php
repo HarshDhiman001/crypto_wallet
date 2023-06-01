@@ -140,7 +140,7 @@ if($result)
           <div class="col-lg-4 col-md-6">
             <div class="card card-chart">
               <div class="card-header">
-                <h5 class="card-category">2018 Sales</h5>
+                <h5 class="card-category">1 June 2023 Sales</h5>
                 <h4 class="card-title">All products</h4>
                 <div class="dropdown">
                   <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
@@ -270,7 +270,7 @@ if($result)
             <div class="card">
               <div class="card-header">
                 <h5 class="card-category">Add Your Expenses</h5>
-                <h4 class="card-title">Add To Wallet</h4>
+                <h4 class="card-title">Add To Expenses</h4>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
