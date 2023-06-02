@@ -28,12 +28,17 @@ if($result)
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <!-- CSS Files -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
 </head>
-
+<style>
+  img {
+    height: 100%;
+}
+</style>
 <body class="">
   <div class="wrapper ">
     <div class="sidebar" data-color="orange">
@@ -69,10 +74,10 @@ if($result)
               <p>Wallet</p>
             </a>
           </li>
-          <li class="<?php echo $url == 'typography' ? 'active' : '' ?>">
-            <a href="#">
+          <li class="<?php echo $url == 'history' ? 'active' : '' ?>">
+            <a href="history.php?email=<?php echo $email;?>">
               <i class="now-ui-icons text_caps-small"></i>
-              <p>Typography</p>
+              <p>History</p>
             </a>
           </li>
           <li class="active-pro">
@@ -90,90 +95,66 @@ if($result)
       </div>
       <div class="content">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-6">
             <div class="card">
               <div class="card-header">
-                <h5 class="title">Now Ui Table Heading</h5>
-                <p class="category">Created using Montserrat Font Family</p>
+                <?php
+                include 'connect.php';
+                $email = $_GET['email'];
+                $sql = "SELECT * FROM `users` WHERE `email` LIKE '$email'";
+                $result = mysqli_query($con,$sql);
+                if($result)
+                {
+                  foreach($result as $row)
+                  {
+                    $wallet = $row['balance'];
+                  }
+                }
+                ?>
+                <h5 class="title">Available Balance</h5>
+                <div class="col-md-7 pl-0">
+                <div class="form-group">
+                <input type="text" class="form-control" disabled="" placeholder="Company" value="<?php echo $wallet;?>">
               </div>
-              <div class="card-body">
-                <div class="typography-line">
-                  <h1><span>Header 1</span>The Life of Now Ui Dashboard </h1>
-                </div>
-                <div class="typography-line">
-                  <h2><span>Header 2</span>The Life of Now Ui Dashboard </h2>
-                </div>
-                <div class="typography-line">
-                  <h3><span>Header 3</span>The Life of Now Ui Dashboard </h3>
-                </div>
-                <div class="typography-line">
-                  <h4><span>Header 4</span>The Life of Now Ui Dashboard </h4>
-                </div>
-                <div class="typography-line">
-                  <h5><span>Header 5</span>The Life of Now Ui Dashboard </h5>
-                </div>
-                <div class="typography-line">
-                  <h6><span>Header 6</span>The Life of Now Ui Dashboard </h6>
-                </div>
-                <div class="typography-line">
-                  <p><span>Paragraph</span>
-                    I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at.
-                  </p>
-                </div>
-                <div class="typography-line">
-                  <span>Quote</span>
-                  <blockquote>
-                    <p class="blockquote blockquote-primary">
-                      "I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at."
-                      <br>
-                      <br>
-                      <small>
-                        - Noaa
-                      </small>
-                    </p>
-                  </blockquote>
-                </div>
-                <div class="typography-line">
-                  <span>Muted Text</span>
-                  <p class="text-muted">
-                    I will be the leader of a company that ends up being worth billions of dollars, because I got the answers...
-                  </p>
-                </div>
-                <div class="typography-line">
-                  <span>Primary Text</span>
-                  <p class="text-primary">
-                    I will be the leader of a company that ends up being worth billions of dollars, because I got the answers...</p>
-                </div>
-                <div class="typography-line">
-                  <span>Info Text</span>
-                  <p class="text-info">
-                    I will be the leader of a company that ends up being worth billions of dollars, because I got the answers... </p>
-                </div>
-                <div class="typography-line">
-                  <span>Success Text</span>
-                  <p class="text-success">
-                    I will be the leader of a company that ends up being worth billions of dollars, because I got the answers... </p>
-                </div>
-                <div class="typography-line">
-                  <span>Warning Text</span>
-                  <p class="text-warning">
-                    I will be the leader of a company that ends up being worth billions of dollars, because I got the answers...
-                  </p>
-                </div>
-                <div class="typography-line">
-                  <span>Danger Text</span>
-                  <p class="text-danger">
-                    I will be the leader of a company that ends up being worth billions of dollars, because I got the answers... </p>
-                </div>
-                <div class="typography-line">
-                  <h2><span>Small Tag</span>
-                    Header with small subtitle <br>
-                    <small>Use "small" tag for the headers</small>
-                  </h2>
-                </div>
               </div>
+              </div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Category</th>
+                    <!-- <th scope="col">User ID</th> -->
+                    <!-- <th scope="col">Credit</th> -->
+                    <th scope="col">Debit</th>
+                    <th scope="col">Date/Time</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <?php
+                    $sqli = "SELECT * FROM `expenses` WHERE `user_id` = $id";
+                    $data = mysqli_query($con,$sqli);
+                    foreach($data as $info)
+                    {
+                      $c_id  = $info['category_id'];
+                      $userid = $info ['user_id'];
+                      // $credit = $info['credit'];
+                      $debit = $info['debit'];
+                      $date = $info['created_at'];
+                    ?>
+                    <th scope="row"><?php echo $c_id;?></th>
+                    <!-- <td><?php echo $credit;?></td> -->
+                    <td><?php echo $debit;?></td>
+                    <td><?php echo $date;?></td>
+                  </tr>
+                  <?php } ?>
+                </tbody>
+              </table>
             </div>
+          </div>
+          <div class="col-md-6">
+            <img src="https://www.limitlesstechnology.com/wp-content/uploads/2012/05/Money.jpg" alt="">
           </div>
         </div>
       </div>
-      <?php include'footer.php';?>
+    </div>
+    <?php include'footer.php';?>

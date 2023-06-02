@@ -75,10 +75,10 @@ if($result)
               <p>Wallet</p>
             </a>
           </li>
-          <li class="<?php echo $url == 'typography' ? 'active' : '' ?>">
-            <a href="#">
+          <li class="<?php echo $url == 'history' ? 'active' : '' ?>">
+            <a href="./history.php?email=<?php echo $email;?>">
               <i class="now-ui-icons text_caps-small"></i>
-              <p>Typography</p>
+              <p>History</p>
             </a>
           </li>
           <li class="active-pro">
@@ -122,50 +122,44 @@ if($result)
                     <label for="exampleInputEmail1">Add Money</label>
                     <input type="number" name="addmoney" class="form-control" placeholder="Enter Amount">
                     </div>
+                    <div class="form-group">
+                <label for="exampleInputPassword1">Items</label>
+                <div class="input-group mb-3">
+                <select class="custom-select" name="items" id="inputGroupSelect01">
+                    <option selected>Choose...</option>
+                    <?php
+                    $sql = "SELECT * FROM `category` WHERE `user_id` = $id";
+                    $result = mysqli_query($con,$sql);
+                    foreach ($result as $data)
+                    {
+                      $items = $data['name'];
+                    ?>
+                    <option value="<?php echo $items; ?>"><?php echo $items; ?></option>
+                    <?php } ?>
+                </select>
+                </div>
+            </div>
+            <?php } ?>
                     <button type="submit" class="btn btn-primary">Submit</button>
+                    <a href="./addcategory.php?email=<?php echo $email;?>">
+                      <!-- <i class="now-ui-icons education_atom"></i> -->
+                      <p>Add Category</p>
+                    </a>
                     </div>
                     </form>
-                    <?php } ?>
+                    
                     </tbody>
                   </table>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-12">
-            <div class="card card-plain">
-              <div class="card-header">
-                <h4 class="card-title"> Table on Plain Background</h4>
-                <p class="category"> Here is a subtitle for this table</p>
-              </div>
-              <?php
-              include 'connection.php';
-              $sql = "SELECT * FROM `data` WHERE `data`.`sno` = $sno";
-              $result = mysqli_query($con,$sql);
-              if($result)
-              foreach($result as $row)
-              {
-              $wallet = $row['wallet'];
-              ?>
-              <form action="moneydata.php" method="post">
-              <div class="container mt-4">
-              <input type="hidden" name="sno" value='<?php echo $row['sno'];?>'>
-              <label for=""><h5>Your total balance:-</h5></label>
-              <input type="text" name="balance" value="<?php echo $wallet; ?>" readonly>
-              <div class="form-group">
-              <label for="exampleInputEmail1">Add Money</label>
-              <input type="number" name="addmoney" class="form-control" placeholder="Enter Amount">
-              </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
-              </form>
-              <?php } ?>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <?php include'footer.php';?>
+          </div>              
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+<?php include'footer.php';?>

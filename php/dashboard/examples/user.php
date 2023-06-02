@@ -41,7 +41,13 @@ if($result)
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
 </head>
-
+<style>
+  p.logout {
+    position: absolute;
+    left: 91.4%;
+    top: 89.4%;
+}
+</style>
 <body class="">
   <div class="wrapper ">
     <div class="sidebar" data-color="orange">
@@ -77,10 +83,10 @@ if($result)
               <p>Wallet</p>
             </a>
           </li>
-          <li class="<?php echo $url == 'typography' ? 'active' : '' ?>">
-            <a href="#">
+          <li class="<?php echo $url == 'history' ? 'active' : '' ?>">
+            <a href="history.php?email=<?php echo $email;?>">
               <i class="now-ui-icons text_caps-small"></i>
-              <p>Typography</p>
+              <p>History</p>
             </a>
           </li>
           <li class="active-pro">
@@ -109,7 +115,7 @@ if($result)
                     <div class="col-md-5 pr-1">
                       <div class="form-group">
                         <label>Available Balance</label>
-                        <input type="text" class="form-control" disabled="" placeholder="Company" value="<?php echo $wallet;?>"">
+                        <input type="text" class="form-control" disabled="" placeholder="Company" value="<?php echo $wallet;?>">
                       </div>
                     </div>
                     <div class="col-md-3 px-1">
@@ -165,6 +171,10 @@ if($result)
                     <a href="./update.php?email=<?php echo $email;?>">
                       <!-- <i class="now-ui-icons education_atom"></i> -->
                       <p>Update Info</p>
+                    </a>    
+                    <a href="./logout.php">
+                      <!-- <i class="now-ui-icons education_atom"></i> -->
+                      <p class="logout">Logout</p>
                     </a>
                 </form>
               </div>

@@ -82,7 +82,7 @@ if($result)
             </a>
           </li>
           <li class="<?php echo $url == 'history' ? 'active' : '' ?>">
-            <a href="history.php">
+            <a href="history.php?email=<?php echo $email;?>">
               <i class="now-ui-icons text_caps-small"></i>
               <p>history</p>
             </a>
@@ -274,7 +274,7 @@ if($result)
               </div>
               <div class="card-body">
                 <div class="table-responsive">
-                <form action="expencesdata.php" method="post">
+        <form action="expencesdata.php" method="post">
             <div class="form-group">
                 <input type="hidden" name="id" value="<?php echo $row['id'];?>">
                 <label for="exampleInputEmail1">Enter amount</label>
@@ -284,14 +284,20 @@ if($result)
                 <label for="exampleInputPassword1">Items</label>
                 <div class="input-group mb-3">
                 <select class="custom-select" name="items" id="inputGroupSelect01">
-                    <option selected>Choose...</option>
-                    <option value="Fruits">Fruits</option>
-                    <option value="Vegitables">Vegitables</option>
-                    <option value="Cloths">Cloths</option>
-                    <option value="Burgur">Burgur</option>
+                <option selected>Choose...</option>
+                <?php
+                    $sql = "SELECT * FROM `category` WHERE `user_id` = $id";
+                    $result = mysqli_query($con,$sql);
+                    foreach ($result as $data)
+                    {
+                      $items = $data['name'];
+                    ?>
+                    <option value="<?php echo $items; ?>"><?php echo $items; ?></option>
+                    <?php } ?>
                 </select>
                 </div>
             </div>
+            
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
                 </div>

@@ -8,5 +8,4 @@ if(!$con)
 {
     echo "error in connection";
 }
-
 ?>

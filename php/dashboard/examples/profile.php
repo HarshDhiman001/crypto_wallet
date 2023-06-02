@@ -36,9 +36,9 @@ if($result)
                   </p>
                 </div>
                 <p class="description text-center">
-                  "Hello There🙋🏻‍♂️<br>
+                  Hello There🙋🏻<br>
                   I love to learn new things new technologies and I'm always eager to learn new skills and open for challenges apart from this I Have Good Knowledge About Java , PHP , HTML & CSS as well.
-                  Thank You ☺️"<br>
+                  Thank You ☺️<br>
                 </p>
               </div>
               <hr>

@@ -13,6 +13,6 @@ if(mysqli_num_rows($result)>0)
 }
 else
 {
-    echo "not";
+    header("location: http://localhost/clg_project/php/register.php");
 }
 ?>

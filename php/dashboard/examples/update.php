@@ -58,6 +58,7 @@ if($result)
                   <div class="row">
                     <div class="col-md-5 pr-1">
                       <div class="form-group">
+                        <input type="hidden" name="id" value="<?php echo $id;?>">
                         <label>Available Balance</label>
                         <input type="text" class="form-control" name="balance" disabled="" placeholder="Company" value="<?php echo $wallet;?>"">
                       </div>
