@@ -46,39 +46,39 @@
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
         <li class="<?php echo $url == 'user' ? 'active' : '' ?>">
-            <a href="./user.php?email=<?php echo $email;?>">
-              <i class="now-ui-icons users_single-02"></i>
-              <p>User Profile</p>
-            </a>
-          </li>
-          <li class="<?php echo $url == 'dashboard' ? 'active' : '' ?>">
-            <a href="./dashboard.php?email=<?php echo $email;?>">
-              <i class="now-ui-icons design_app"></i>
-              <p>Dashboard</p>
-            </a>
-          </li>
-          <li class="<?php echo $url == 'icons' ? 'active' : '' ?>">
-            <a href="./wallet.php?email=<?php echo $email;?>">
-              <i class="now-ui-icons education_atom"></i>
-              <p>Wallet</p>
-            </a>
-          </li>
-          <li class="<?php echo $url == 'history' ? 'active' : '' ?>">
-            <a href="history.php?email=<?php echo $email;?>">
-              <i class="now-ui-icons text_caps-small"></i>
-              <p>history</p>
-            </a>
-          </li>
-          <li class="active-pro">
-            <a href="./upgrade.php">
-              <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-              <p>Upgrade to PRO</p>
-            </a>
-          </li>
-        </ul>
-      </div>
+          <a href="./user.php?email=<?php echo $email;?>">
+            <i class="now-ui-icons users_single-02"></i>
+            <p>User Profile</p>
+          </a>
+        </li>
+        <li class="<?php echo $url == 'dashboard' ? 'active' : '' ?>">
+          <a href="./dashboard.php?email=<?php echo $email;?>">
+            <i class="now-ui-icons design_app"></i>
+            <p>Dashboard</p>
+          </a>
+        </li>
+        <li class="<?php echo $url == 'icons' ? 'active' : '' ?>">
+          <a href="./wallet.php?email=<?php echo $email;?>">
+            <i class="now-ui-icons education_atom"></i>
+            <p>Wallet</p>
+          </a>
+        </li>
+        <li class="<?php echo $url == 'history' ? 'active' : '' ?>">
+          <a href="history.php?email=<?php echo $email;?>">
+            <i class="now-ui-icons text_caps-small"></i>
+            <p>history</p>
+          </a>
+        </li>
+        <li class="active-pro">
+          <a href="./upgrade.php">
+            <i class="now-ui-icons arrows-1_cloud-download-93"></i>
+            <p>Upgrade to PRO</p>
+          </a>
+        </li>
+      </ul>
     </div>
-    <div class="main-panel" id="main-panel">
+  </div>
+<div class="main-panel" id="main-panel">
       <?php 
         if(isset($error)){
           echo '<a href="#" class="badge badge-pill badge-danger ">' . $error . '</a>';
