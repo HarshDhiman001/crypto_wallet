@@ -12,15 +12,15 @@ foreach($result as $row)
     $query = "UPDATE `users` SET `balance` = $balance + $addmoney  WHERE `users`.`id` = $id";
     $add = mysqli_query($con,$query);
     if($add)
-    {
-        $sqli = "INSERT INTO `expenses`(category_id, user_id, credit) 
-        VALUES ('$items','$id', '$addmoney')";
-        $data = mysqli_query($con,$sqli);    
-        if($data)
-        {
-            header("location: http://localhost/clg_project/php/dashboard/examples/user.php?email=$email");
-        }
+    {        
+        header("location: http://localhost/clg_project/php/dashboard/examples/user.php?email=$email");
     }
 }
 ?>
 
+
+$sqli = "INSERT INTO `expenses`(category_id, user_id, credit) 
+        VALUES ('$items','$id', '$addmoney')";
+        $data = mysqli_query($con,$sqli);    
+        if($data)
+        {        }

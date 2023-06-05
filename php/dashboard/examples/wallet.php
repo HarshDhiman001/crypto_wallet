@@ -123,21 +123,6 @@ if($result)
                     <input type="number" name="addmoney" class="form-control" placeholder="Enter Amount">
                     </div>
                     <div class="form-group">
-                <label for="exampleInputPassword1">Items</label>
-                <div class="input-group mb-3">
-                <select class="custom-select" name="items" id="inputGroupSelect01">
-                    <option selected>Choose...</option>
-                    <?php
-                    $sql = "SELECT * FROM `category` WHERE `user_id` = $id";
-                    $result = mysqli_query($con,$sql);
-                    foreach ($result as $data)
-                    {
-                      $items = $data['name'];
-                    ?>
-                    <option value="<?php echo $items; ?>"><?php echo $items; ?></option>
-                    <?php } ?>
-                </select>
-                </div>
             </div>
             <?php } ?>
                     <button type="submit" class="btn btn-primary">Submit</button>
@@ -147,17 +132,16 @@ if($result)
                     </a>
                     </div>
                     </form>
-                    
-                    </tbody>
-                  </table>
-                </div>
+                  </tbody>
+                </table>
               </div>
             </div>
-          </div>              
-        </tbody>
-      </table>
-    </div>
+          </div>
+        </div>              
+      </tbody>
+    </table>
   </div>
+</div>
 </div>
 </div>
 </div>
